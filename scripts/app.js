@@ -5,7 +5,7 @@ var todoApp = angular.module('todoApp', [
 todoApp.controller('todoController',['$scope', '$cookieStore', function ($scope, $cookieStore) {
     $scope.todos = [
         {
-            todo: 'A date with GF at 7 pm.',
+            todo: 'Date with GF at 7 pm.',
             completed: false
         },
         {
