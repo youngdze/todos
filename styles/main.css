@@ -1,8 +1,30 @@
-.page-wrapper {
-    padding: 30px;
+.complete-all {
+	color: #777777;
+	background-color: #eeeeee;
 }
 
-.list-group-item-success label {
+.y-checkbox {
+	text-align: center;
+	border-right: 1px solid #cccccc;
+	height: 46px;
+}
+
+.list-group-item input[type=checkbox] {
+	width: 30px;
+	height: 30px;
+}
+
+.list-group-item p {
+	font-size: 20px;
+	line-height: 46px;
+	margin: 0;
+}
+
+.list-group-item label {
+	width: 100%;
+}
+
+.list-group-item-success p {
 	text-decoration: line-through;
 }
 
