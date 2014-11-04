@@ -1,0 +1,11 @@
+.page-wrapper {
+    padding: 30px;
+}
+
+.list-group-item-success label {
+	text-decoration: line-through;
+}
+
+.form-group {
+	margin-bottom: 0;
+}
