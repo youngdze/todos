@@ -7,20 +7,21 @@ todoApp.controller('todoController',['$scope', '$cookieStore', function ($scope,
     $scope.todos = [
         {
             todo: 'Date with GF at 7 pm.',
-            editable: false,
-            completed: false
+            completed: false,
+            editable: false
         },
         {
             todo: 'Another date with GF.',
-            editable: false,
-            completed: false
+            completed: false,
+            editable: false
         },
         {
             todo: 'Date has been completed.',
-            editable: false,
-            completed: true
+            completed: true,
+            editable: false
         }
     ];
+
 
     $scope.init = function () {
         if ($cookieStore.get('todos') != '' && $cookieStore.get('todos') != null) {
@@ -40,11 +41,11 @@ todoApp.controller('todoController',['$scope', '$cookieStore', function ($scope,
 
     $scope.editOn = function (index) {
         $scope.todos[index].editable = true;
-    }
+    };
 
     $scope.editOff = function (index) {
         $scope.todos[index].editable = false;
-    }
+    };
 
     $scope.addTodo = function () {
         if ($scope.newTodo == undefined || $scope.newTodo == '') {
@@ -66,12 +67,23 @@ todoApp.controller('todoController',['$scope', '$cookieStore', function ($scope,
     };
 
     $scope.cookieStore = function () {
+        angular.forEach($scope.todos, function (todo) {
+            todo.editable = false;
+        });
         $cookieStore.put('todos', $scope.todos);
-    }
+    };
 
-    // $scope.completeAll = function () {
-    //     angular.forEach($scope.todos, function(todo) {
-    //         todo.completed = true;
-    //     });
-    // };
+    $scope.debug = function () {
+        alert('hello');
+    };
+
+    $scope.completedAllParam = false;
+
+    $scope.completeToggle = function () {
+        $scope.completedAllParam = !$scope.completedAllParam;
+        angular.forEach($scope.todos, function(todo) {
+            todo.completed = $scope.completedAllParam;
+            $scope.cookieStore();
+        });
+    };
 }]);

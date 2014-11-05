@@ -1,6 +1,6 @@
-var todoDirective = angular.module('todoApp.todoDirectives', []);
+var todoDirectives = angular.module('todoApp.todoDirectives', []);
 
-todoDirective.directive('editForm', function() {
+todoDirectives.directive('editForm', function() {
 	return {
 		restrict: 'EA',
 		templateUrl: 'views/editForm.html',
