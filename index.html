@@ -18,57 +18,59 @@
 
     <div class="page-wrapper" ng-controller="todoController" ng-init="init()">
         <div class="container">
-            <div class="row">
-                <div class="page-header">
-                    <h1>
-                        todos <br>
-                        <small> built in AngularJS | {{todosLength()}} todos left</small><br>
-                        <small>I use cookies to store your todos</small>
-                    </h1>
-                </div>
+            <div class="page-header">
+                <h1>
+                    todos <br>
+                    <small> built in AngularJS | {{todosLength()}} todos left</small><br>
+                    <small>I use cookies to store your todos</small>
+                </h1>
             </div>
         </div>
 
         <div class="container">
-            <div class="row">
-                <ul class="list-group">
-                    <li class="list-group-item row complete-all">
-                        <div class="col-md-1 y-checkbox">
+            <ul class="list-group">
+                <li class="list-group-item complete-all">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1 col-xs-1 y-checkbox">
                             <input type="checkbox" ng-checked="completedAllParam" ng-click="completeToggle()">
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 col-sm-9 col-xs-9">
                             <p>Complete all</p>
                         </div>
-                    </li>
-                    <li class="list-group-item row" ng-repeat="todo in todos" ng-class="todo.completed ? 'list-group-item-success' : 'list-group-item-info'">
-                        <div class="col-md-1 col-sm-1 y-checkbox">
+                    </div>
+                </li>
+                <li class="list-group-item" ng-repeat="todo in todos" ng-class="todo.completed ? 'list-group-item-success' : 'list-group-item-info'">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1 col-xs-1 y-checkbox">
                             <input type="checkbox" ng-model="todo.completed" ng-checked="todo.completed" ng-change="cookieStore()">
                         </div>
-                        <div class="col-md-9 col-sm-9">
+                        <div class="col-md-9 col-sm-9 col-xs-9">
                             <p ng-dblclick="editOn($index)" ng-hide="todo.editable">{{todo.todo}}</p>
                             <edit-form></edit-form>
                         </div>
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-sm-2 col-xs-2">
                             <button class="btn btn-danger pull-right" ng-click="deleteTodo($index)">Delete</button>
                         </div>
-                    </li>
-                    <li class="list-group-item list-group-item-info row" ng-show="newTodo">
-                        <div class="col-md-1 col-sm-1 y-checkbox">
+                    </div>
+                </li>
+                <li class="list-group-item list-group-item-info" ng-show="newTodo">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1 col-xs-1 y-checkbox">
                             <input type="checkbox">
                         </div>
-                        <div class="col-md-9 col-sm-9">
+                        <div class="col-md-9 col-sm-9 col-xs-9">
                             <p>{{newTodo}}</p>
                         </div>
-                    </li>
-                    <li class="list-group-item list-group-item-info row">
-                        <form class="form" ng-submit="addTodo()">
-                            <div class="form-group">
-                                <input type="text" class="form-control input-lg" ng-model="newTodo" placeholder="What's to be done ?">
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+                    </div>
+                </li>
+                <li class="list-group-item list-group-item-info">
+                    <form class="form" ng-submit="addTodo()">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" ng-model="newTodo" placeholder="What's to be done ?">
+                        </div>
+                    </form>
+                </li>
+            </ul>
         </div>
     </div>
 	
